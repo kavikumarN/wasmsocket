@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div align="left">
+    <h1>Student Portal</h1>
+    <form onsubmit="native()">
+    <input type="text" name="username" id="username" placeholder=" UserName"><br><br>
+    <input type="text" name="password" id="password" placeholder=" password"><br><br>
+    
+    <input type="submit" value="login" target ="abc2.html"><br>
+    
+    </form>
+    </div>
+    <!-- <button onclick="native()">click</button> -->
+    <script>
+        // called when the runtime is ready
+        // var Module = {
+        //     onRuntimeInitialized: function () {
+        //         alert('onRuntimeInitialized');
+        //     }
+        // };
+ 
+        // // called from main()
+        // function onLoaded() {
+        //     alert('Module is loaded');
+        // }
+           
+      
+        function native() {
+            // var abc = document.getElementById('para');
+             var a = document.getElementById('username').value;
+              var b = document.getElementById('password').value;
+            var uname = Module.ccall('world', 'string', ['string'], [a] , ['string'], [b]);
+           // var pwd = Module.ccall('world', 'string', );
+           
+           // alert("welcome "+uname+"");
+           if (uname == "true") {
+            window.open("abc.html");
+
+            }
+            else 
+                alert ("Login Failed..!");
+        }
+        
+    </script>
+    <script async type="text/javascript" src="abc2.js"></script>
+</body>
+ 
+</html>

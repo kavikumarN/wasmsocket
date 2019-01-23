@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div align="center">
+    <h1>Student Portal</h1>
+    
+    <form>
+    <input type="text" name="name" id="name" placeholder="name"/><br><br>
+    <input type="text" name="email" id="email" placeholder="email"/><br><br>
+    <input type="text" name="address" id="address" placeholder="address"/><br><br>
+    <input type="text" name="mark1" id="mark1" placeholder="mark1"/><br><br>
+    <input type="text" name="mark2" id="mark2" placeholder="mark2"/><br><br>
+    <input type="text" name="mark3" id="mark3" placeholder="mark3"/><br><br>
+    <input type="button" onclick="store()" value="submit"><br>
+    </form>
+    </div>
+    <br><br>
+    <div align="center">
+    
+    
+    <form>
+     <input type="text" name="search" id="search" placeholder="email search"/><br><br>
+    <input type="button" onclick="view()" value="submit"><br>
+    </form>
+    </div>
+    <br><br><br>
+    <div align="center">
+      <table>
+         
+        <tr>
+          <th>name</th>
+          <th>email</th>
+          <th>address</th>
+          <th>mark1</th>
+          <th>mark2</th>
+          <th>mark3</th>
+          <th>average</th>
+        </tr>
+        <tr>
+          <td id="ref1"></td>
+          <td id="ref2"></td>
+          <td id="ref3"></td>
+          <td id="ref4"></td>
+          <td id="ref5"></td>
+          <td id="ref6"></td>
+          <td id="ref7"></td>
+        </tr>
+      </table>
+      
+      </div>
+
+    <script>
+      // called when the runtime is ready
+       var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+           
+        function store() {
+           
+             var b = document.getElementById('name').value;
+             var c = document.getElementById('email').value;
+             var d = document.getElementById('mark1').value;
+             var e = document.getElementById('mark2').value;
+             var f = document.getElementById('mark3').value;
+             var g = document.getElementById('address').value;
+            
+              
+            var em2 = Module.ccall('store','string', ['string','string','int','int','int','string'], [b,c,d,e,f,g]);
+         
+           // document.getElementById('ref1').innerHTML = em2;         
+            
+        }
+
+     function search()
+  {           
+               var key = document.getElementById('search').value;
+              Module.ccall('retrivename','string',['string'],[key]);
+           
+             
+  }   
+
+
+           function rname()
+  {
+             var rname = Module.ccall('retrivename','string');
+           
+             document.getElementById('ref1').innerHTML = rname;
+  }   
+
+           function remail()
+ {
+             var remail = Module.ccall('retrivemail','string');
+           
+             document.getElementById('ref2').innerHTML = remail;
+  }  
+
+           function raddress()
+ {
+             var raddress = Module.ccall('retriveaddress','string');
+           
+             document.getElementById('ref3').innerHTML = raddress;
+  }  
+
+           function rmark1()
+ {
+             var rmark1 = Module.ccall('retrivem1','number');
+           
+             document.getElementById('ref4').innerHTML = rmark1;
+  }  
+
+           function rmark2()
+ {
+             var rmark2 = Module.ccall('retrivem2','number');
+           
+             document.getElementById('ref5').innerHTML = rmark2;
+  }  
+           function rmark3()
+  {
+             var rmark3 = Module.ccall('retrivem3','number');
+           
+             document.getElementById('ref6').innerHTML = rmark3;
+  }  
+
+           function ravg()
+  {
+             var avg = Module.ccall('retriveavg','number');
+           
+             document.getElementById('ref7').innerHTML = avg;
+  } 
+
+
+          function view()
+        {
+
+          search();
+          rname();
+          remail();
+          raddress();
+          rmark1();
+          rmark2();
+          rmark3();
+          ravg();
+        }
+
+
+
+    </script>
+    <script type="text/javascript" src="lerp.js"></script>
+</body>
+ 
+</html>

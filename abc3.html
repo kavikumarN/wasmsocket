@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div align="center">
+    <h1>Student Portal</h1>
+    
+    <form>
+    <input type="text" name="email" id="email" placeholder="Email"/><br><br>
+    <input type="button" onclick="view()" value="submit"><br>
+    </form>
+    </div>
+    <table align="center"><tr>
+        <th> name </th>
+        <th> sno </th>
+        <th> email </th>
+        <th> mark1 </th>
+        <th> mark2 </th>
+        <th> mark3 </th>
+        <th> average </th>
+        </tr>
+        <tr><td id="data1">
+            
+        </td>
+        <td id="data2">
+            
+        </td>
+        <td id="data3">
+      
+        </td>
+        <td id="data4">
+            
+        </td>
+        <td id="data5">
+            
+        </td>
+        <td id="data6">
+            
+        </td>
+        </tr>
+     <!--    <tr><td id="print1">
+            
+        </td>
+        </tr>
+        <tr><td id="print2">
+            
+        </td>
+        </tr> -->
+    </table>
+    <script>
+      // called when the runtime is ready
+        var Module = {
+            onRuntimeInitialized: function () {
+               
+            }
+        };
+ 
+        // // called from main()
+        // function onLoaded() {
+        //     alert('Module is loaded');
+        // }
+           
+      
+        // }
+
+        function view() {
+            // var abc = document.getElementById('para');
+             var em1 = document.getElementById('email').value;
+             //alert(em);
+          var em = Module.cwrap('viewc', 'string',['string']);
+          var em2 = em(em1);
+            document.getElementById('data1').innerHTML = em2;
+            document.getElementById('data2').innerHTML = em2;
+            document.getElementById('data3').innerHTML = em2;
+            document.getElementById('data4').innerHTML = em2;
+            document.getElementById('data5').innerHTML = em2;
+            
+        }
+        
+        
+    </script>
+    <script async type="text/javascript" src="abc.js"></script>
+</body>
+ 
+</html>

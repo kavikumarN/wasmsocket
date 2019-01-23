@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+    <div align="center">
+    <h1>Student Portal</h1>
+    <form onsubmit="entry()">
+    <input type="text" name="username" id="username" placeholder=" Name"><br><br>
+    <input type="text" name="studentid" id="studentid" placeholder=" student id"><br><br>
+    <input type="text" name="Email" id="email" placeholder=" Email"><br><br>
+    <input type="text" name="mark1" id="mark1" placeholder=" mark1"><br><br>
+    <input type="text" name="mark2" id="mark2" placeholder=" mark2"><br><br>
+    <input type="text" name="mark3" id="mark3" placeholder=" mark3"><br><br>
+    
+    <input type="submit" value="submit"><br>
+    
+    </form>
+    </div><br><br>
+
+    <div align="center">
+    <button onclick="window.location = 'abc3.html'">view</button> 
+    </div>
+    <br><br>
+        <div align="center">
+    <form>
+    <input type="text" name="emails" id="emails" placeholder="Email"/><br><br>
+    <input type="button" onclick="view()" value="submit"><br>
+    </form>
+    </div><br>
+    <table align="center"><tr>
+        <th> name </th>
+        <th> sno </th>
+        <th> email </th>
+        <th> mark1 </th>
+        <th> mark2 </th>
+        <th> mark3 </th>
+        <th> average </th>
+        </tr>
+        <tr><td id="data1">
+            
+        </td>
+        <td id="data2">
+            
+        </td>
+        <td id="data3">
+      
+        </td>
+        <td id="data4">
+            
+        </td>
+        <td id="data5">
+            
+        </td>
+        <td id="data6">
+            
+        </td>
+        </tr>
+     <!--    <tr><td id="print1">
+            
+        </td>
+        </tr>
+        <tr><td id="print2">
+            
+        </td>
+        </tr> -->
+    </table>
+    <script>
+        // called when the runtime is ready
+        var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+ 
+        // called from main()
+        function onLoaded() {
+            alert('Module is loaded');
+        }
+           
+
+       function microname() {
+
+            // var abc = document.getElementById('para');
+             var a = document.getElementById('username').value;
+             var uname = Module.ccall('entrycn', 'string', ['string'], [a]);
+             alert(uname);
+            }
+
+              function microemail() {
+              var c = document.getElementById('email').value;
+               var cemail = Module.ccall('entrycem', 'string', ['string'], [c]);
+               
+            }
+
+            function microid() {
+
+              var b = document.getElementById('studentid').value;
+              var csid = Module.ccall('entrycsid', 'number', ['number'], [b]);
+              
+             }
+               function microm1() {
+              var d = document.getElementById('mark1').value;
+              var cm1 = Module.ccall('entrycm1', 'number', ['number'], [d]);
+            }
+
+               function microm2() {
+              var e = document.getElementById('mark2').value;
+              var cm2 = Module.ccall('entrycm2', 'number', ['number'], [e]);
+                }
+
+                function micro3() {
+              var f = document.getElementById('mark3').value;
+              var cm3 = Module.ccall('entrycm3', 'number', ['number'], [f]);
+                }
+
+              function microavg() {
+             var cavg = Module.ccall('entrycavg', 'number');
+
+                   }
+
+        // function view() {
+        //     // var abc = document.getElementById('para');
+        //      var em = document.getElementById('viewemail').value;
+              
+        //   var data = Module.ccall('viewc', 'string',['string'],[em]);
+
+           
+        //     alert(data);
+        // }
+
+
+        function entry() {
+
+            microname();
+            microid();
+            microemail();
+            microm1();
+            microm2();
+            micro3();
+            microavg();
+
+
+        }
+
+        function view() {
+            // var abc = document.getElementById('para');
+             var em1 = document.getElementById('emails').value;
+             //alert(em);
+          var em = Module.ccall('viewc', 'string',['string'],[em1]);
+            document.getElementById('data1').innerHTML = em;
+            document.getElementById('data2').innerHTML = em;
+            document.getElementById('data3').innerHTML = em;
+            document.getElementById('data4').innerHTML = em;
+            document.getElementById('data5').innerHTML = em;
+            
+        }
+        
+    </script>
+    <script async type="text/javascript" src="abc.js"></script>
+</body>
+ 
+</html>
