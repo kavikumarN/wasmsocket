@@ -1,0 +1,4 @@
+compile zmq in emcc::::
+c:\Repos>emcc -o zm.js -std=c++14  zmqsrc.cpp -s WASM=1 -O3 -s NO_EXIT_RUNTIME=1  -s EXTRA_EXPORTED_RUNTIME_METHODS='["_zmq_version"]' -s ERROR_ON_UNDEFINED_SYMBOLS=0 -Wall -Wextra -Werror -IC:\Repos\vcpkg\packages\zeromq_x64-windows-static\include -DZMQ_STATIC -static -lzmq -LWs2_64
+shared:WARNING: emcc: cannot find library "zmq"
+warning: undefined symbol: zmq_version
